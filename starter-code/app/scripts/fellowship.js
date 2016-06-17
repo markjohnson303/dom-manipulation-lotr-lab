@@ -95,7 +95,6 @@ function makeBuddies() {
   rivendell.appendChild(buddies_aside);
 }
 
-makeBuddies();
 
 function makeBuddies() {
   // create an aside tag
@@ -119,9 +118,11 @@ makeBuddies();
 
 function beautifulStranger() {
   // change the 'Strider' textnode to 'Aragorn'
+  var strider =  body.querySelectorAll('li')[7];
+  strider.textContent = 'Aragorn';
 }
 
-
+beautifulStranger();
 // Part 6
 
 function leaveTheShire() {
