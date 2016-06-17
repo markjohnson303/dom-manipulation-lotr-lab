@@ -24,6 +24,17 @@ var body = document.querySelector('body');
 
 
 function makeMiddleEarth() {
+
+  var middle_earth = document.createElement('section');
+  middle_earth.setAttribute('id', 'middle-earth');
+  for (var i = 0; i < lands.length; i++) {
+    var land = document.createElement('article');
+    var heading = document.createElement('h1');
+    heading.textContent = lands[i];
+    land.appendChild(heading);
+    middle_earth.appendChild(land);
+  }
+  document.body.appendChild(middle_earth);
   // create a section tag with an id of middle-earth
   // inside, add each land as an article tag
   // inside each article tag include an h1 with the name of the land
@@ -34,31 +45,73 @@ makeMiddleEarth();
 
 
 // Part 2
-
+  var hobbits_list = document.createElement('ul');
 function makeHobbits() {
   // display an unordered list of hobbits in the shire (which is the first article tag on the page)
   // give each hobbit a class of hobbit
+
+  for (var i = 0; i < hobbits.length; i++) {
+    var hobbit = document.createElement('li');
+    hobbit.innerText = hobbits[i];
+    hobbit.className = 'hobbit';
+    hobbits_list.appendChild(hobbit);
+  }
+  body.querySelectorAll('article')[0].appendChild(hobbits_list);
 }
+
+makeHobbits();
 
 
 // Part 3
 
 function keepItSecretKeepItSafe() {
   // create a div with an id of 'the-ring'
+  var the_ring = document.createElement('div');
   // give the div a class of 'magic-imbued-jewelry'
+  the_ring.className = 'magic-imbued-jewelry';
   // add an event listener so that when a user clicks on the ring, the nazgulScreech function (provided) is invoked
+  the_ring.addEventListener("click", nazgulScreech);
   // add the ring as a child of Frodo
+  body.querySelectorAll('li')[0].appendChild(the_ring);
 }
-
+keepItSecretKeepItSafe();
 
 // Part 4
 
+var rivendell = body.querySelectorAll('article')[1];
 
 function makeBuddies() {
   // create an aside tag
+  var buddies_aside = document.createElement('aside');
   // attach an unordered list of the 'buddies' in the aside
+  var buddies_list = document.createElement('ul');
+  for (var i = 0; i < buddies.length; i++) {
+    var buddy = document.createElement('li');
+    buddy.textContent = buddies[i];
+    buddies_list.appendChild(buddy);
+  }
+  buddies_aside.appendChild(buddies_list);
   // insert your aside as a child element of rivendell
+  rivendell.appendChild(buddies_aside);
 }
+
+makeBuddies();
+
+function makeBuddies() {
+  // create an aside tag
+  var aside = document.createElement('aside');
+  var buddyList = document.createElement('ul');
+  for(var i = 0, len = buddies.length; i < len; i++){
+    // attach an unordered list of the 'buddies' in the aside
+    var buddy = document.createElement('li');
+    buddy.textContent = buddies[i];
+    buddyList.appendChild(buddy);
+  }
+  // insert your aside as a child element of rivendell
+  aside.appendChild(buddyList);
+  rivendell.appendChild(aside);
+}
+makeBuddies();
 
 
 // Part 5
